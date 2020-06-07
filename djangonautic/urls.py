@@ -4,11 +4,12 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
+from articles import views as article_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', views.about),
-    path('', views.homepage),
+    path('', article_view.article_list, name='home'),
     path('articles/', include('articles.urls')),
     path('accounts/', include('accounts.urls')),
 ]
